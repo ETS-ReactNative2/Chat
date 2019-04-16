@@ -1,0 +1,59 @@
+.square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 34px;
+}
+.game{
+    display: flex;
+    justify-content: center;
+}
+.square[data-pro="X"] {
+    color: blue;
+}
+
+.square[data-pro="O"] {
+    color: green;
+}
+.square.winner{
+   background-color: #faebd7;
+    color: red;
+}
+.app-wrapp .header{
+    background-color: green;
+    height: 40px;
+}
+.body-wrapp{
+    display: flex;
+    margin-top: 10px;
+}
+.body-wrapp .navbar{
+    width: 20%;
+    background-color: green;
+}
+.body-wrapp-content{
+    width: 80%;
+    background-color: lightskyblue;
+}
+.body-wrapp .navbar a{
+    display: block;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    text-align: left;
+}
+.body-wrapp .navbar a.active{
+    color: goldenrod;
+}
+.dialogs{
+display: grid;
+    grid-template-columns: 2fr 10fr;
+}
