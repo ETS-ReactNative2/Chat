@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 
 
 let mapStateToProps = (state) => {
-    console.log("myPostsContainer", state);
+
     return {
         posts: state.profilePage.posts,
         newPostText: state.profilePage.newPostText

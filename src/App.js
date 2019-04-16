@@ -7,8 +7,7 @@ import Game from "./ticTac/game";
 import Header from "./dialogs/header";
 import Navbar from "./dialogs/navbar";
 import Profile from "./dialogs/profile/profile";
-
-import {BrowserRouter, Route} from "react-router-dom";
+import {Route} from "react-router-dom";
 import DialogsContainer from "./dialogs/dialogs/dialogsContainer";
 
 class App extends Component {
@@ -57,7 +56,6 @@ class App extends Component {
               <Calculator/>
               <Game/>
 
-             <BrowserRouter>
               <div className="app-wrapp">
                   <Header/>
                   <div className="body-wrapp">
@@ -68,7 +66,7 @@ class App extends Component {
                       </div>
                   </div>
               </div>
-             </BrowserRouter>
+
           </div>
     );
   }
