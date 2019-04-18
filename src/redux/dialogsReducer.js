@@ -14,15 +14,23 @@ let initialState = {
     newMessageText: 'write your message'
 }
 const dialogReduser = (state = initialState, action)=>{
+
+    let stateCopy;
     switch (action.type) {
         case updateNewMessageText:
-            state.newMessageText = action.newMess;
-            return state;
+            return {
+                ...state,
+                newMessageText: action.newMess
+            };
+
         case sendMessage:
             let message = state.newMessageText;
-            state.newMessageText = '';
-            state.messages.push({id: 6, message: message});
-            return state;
+            return {
+                ...state,
+                messages: [...state.messages,{id: 6, message: message} ],
+                newMessageText: '',
+            };
+
         default:
             return state;
     }
