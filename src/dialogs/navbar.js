@@ -5,6 +5,7 @@ const Navbar =(props)=>{
     return (<nav className="navbar">
             <NavLink to="/profile">Profile</NavLink>
             <NavLink to="/dialogs">Messages</NavLink>
+            <NavLink to="/users">Users</NavLink>
 
         </nav>
 
