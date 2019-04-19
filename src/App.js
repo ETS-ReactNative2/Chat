@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Test from "./test";
-import Calculator from "./Calculator";
+import Calculator from "./calculator/Calculator";
 import Game from "./ticTac/game";
 import Header from "./dialogs/header";
 import Navbar from "./dialogs/navbar";
@@ -10,6 +8,7 @@ import Profile from "./dialogs/profile/profile";
 import {Route} from "react-router-dom";
 import DialogsContainer from "./dialogs/dialogs/dialogsContainer";
 import UsersContainer from "./dialogs/users/usersContainer";
+import TestMap from "./testMap";
 
 class App extends Component {
     constructor(props){
@@ -28,7 +27,7 @@ class App extends Component {
                     name:"Nata",
                     lastName:"R",
                     department:"dev",
-                    text: 'Считаю, что $ должен стоить 35 рублей!'
+                    text: 'sunny day'
                 }
             ],
             temperature:""
@@ -40,23 +39,6 @@ class App extends Component {
     render() {
         console.log("App",this.props.addPost);
     return (
-          <div className="App">
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title">Welcome to React</h1>
-            </header>
-            <p className="App-intro">
-              To get started, edit <code>src/App.js</code> and save to reload.
-            </p>
-              <div className="users">
-                  {this.state.users.map((itm)=>{
-                      return <li className="userItm" key={itm.id}>{itm.name} {itm.lastName} {itm.text}</li>
-                  })}
-              </div>
-              <Test height="100px"/>
-              <Calculator/>
-              <Game/>
-
               <div className="app-wrapp">
                   <Header/>
                   <div className="body-wrapp">
@@ -65,11 +47,13 @@ class App extends Component {
                           <Route exact path="/profile" render={ () => <Profile/>}/>
                           <Route path="/dialogs" render={ () => <DialogsContainer/>}/>
                           <Route path="/users" render={ () => <UsersContainer/>}/>
+                          <Route path="/ticTac" render={()=>  <Game/>}/>
+                          <Route path="/calculator" render = {()=> <Calculator/>}/>
+                          <Route path="/testMap" render = {()=> <TestMap users={this.state.users}/>}/>
                       </div>
                   </div>
               </div>
 
-          </div>
     );
   }
 }

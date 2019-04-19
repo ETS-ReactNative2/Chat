@@ -27,13 +27,15 @@ class Game extends React.Component {
     }
 
     render() {
-        return(
+        return (
             <div className="game">
-                <div className="gameBoard">
-                    <Board calculateWinner={this.calculateWinner}/>
-                </div>
-                <div className="gameInfo">
+                <div className="gameWrapper">
+                    <div className="gameBoard">
+                        <Board calculateWinner={this.calculateWinner}/>
+                    </div>
+                    <div className="gameInfo">
 
+                    </div>
                 </div>
 
             </div>

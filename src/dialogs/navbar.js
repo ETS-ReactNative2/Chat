@@ -6,7 +6,9 @@ const Navbar =(props)=>{
             <NavLink to="/profile">Profile</NavLink>
             <NavLink to="/dialogs">Messages</NavLink>
             <NavLink to="/users">Users</NavLink>
-
+            <NavLink to="/ticTac">TicTac</NavLink>
+            <NavLink to="/calculator">Calculator</NavLink>
+            <NavLink to="/testMap">Test map</NavLink>
         </nav>
 
     )
