@@ -11,6 +11,8 @@ import PorfolioImg7 from './img/7.jpg';
 import PorfolioImg8 from './img/8.jpg';
 import PorfolioImg9 from './img/9.jpg';
 const TestMap = (props) => {
+
+
     return (<div>
             <div className="users">
                 {props.users.map((itm) => {
@@ -47,15 +49,117 @@ const TestMap = (props) => {
                     <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg1})`}}>
                         <span>Cool</span>
                     </div>
-                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg2})`}}></div>
-                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg3})`}}></div>
-                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg4})`}}></div>
-                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg5})`}}></div>
-                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg6})`}}></div>
-                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg7})`}}></div>
-                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg8})`}}></div>
-                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg9})`}}></div>
+                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg2})`}}>
+                        <span>Cool</span>
+                    </div>
+                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg3})`}}>
+                        <span>Cool</span>
+                    </div>
+                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg4})`}}>
+                        <span>Cool</span>
+                    </div>
+                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg5})`}}>
+                        <span>Cool</span>
+                    </div>
+                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg6})`}}>
+                        <span>Cool</span>
+                    </div>
+                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg7})`}}>
+                        <span>Cool</span>
+                    </div>
+                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg8})`}}>
+                        <span>Cool</span>
+                    </div>
+                    <div className="porfolio-item grid-block" style={{backgroundImage:`url(${PorfolioImg9})`}}>
+                        <span>Cool</span>
+                    </div>
+                    <div className="buttoncase">
+                        <NavLink className="button">View Porfolio</NavLink>
+                    </div>
                 </section>
+                <section className="landing-section section-ready">
+                    <div className="container grid-block">
+                        <div className="ready-left">
+                            <h2>Are You Ready?</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis debitis earum laborum nostrum voluptatibus. Architecto atque dolor dolore dolorem et ipsam iure laboriosam molestiae nesciunt, omnis, placeat quis sit veniam.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, dolor ducimus enim ipsam laborum libero minima mollitia necessitatibus neque odio sint unde. Corporis eligendi exercitationem ipsam maiores optio quidem tempora.</p>
+                        </div>
+                        <div className="ready-right">
+                            <img src={require('./img/example.jpg')} className="img-responsive" alt="img"/>
+                        </div>
+                    </div>
+
+                </section>
+                <section className="form-section">
+                    <div className="container">
+                        <form className="grid-block">
+                            <input type='text' name="name" placeholder="Your name..." required/>
+                            <input type='text' name="name" placeholder="Your name..."/>
+                            <input type='text' name="name" placeholder="Your name..."/>
+                            <div><button className="button">Yes! Ready!</button></div>
+                        </form>
+                    </div>
+                </section>
+                <section className="landing-section section-blog">
+                    <div className="container">
+                        <h2>Ready to Blog?</h2>
+                        <div className="blog-home grid-block">
+                            <NavLink className="blog-item grid-block">
+                                <span className="blog-home-img" style={{backgroundImage:`url(${PorfolioImg1})`}}/>
+                                <span className="blog-home-content grid-block">
+                                    <h4>We are Champions At Last Month</h4>
+                                    <p>Lorem ipsum</p>
+                                </span>
+                            </NavLink>
+                            <NavLink className="blog-item grid-block">
+                                <span className="blog-home-img" style={{backgroundImage:`url(${PorfolioImg2})`}}/>
+                                <span className="blog-home-content grid-block">
+                                    <h4>We are Champions At Last Month</h4>
+                                    <p>Lorem ipsum</p>
+                                </span>
+                            </NavLink>
+                            <NavLink className="blog-item grid-block">
+                                <span className="blog-home-img" style={{backgroundImage:`url(${PorfolioImg3})`}}/>
+                                <span className="blog-home-content grid-block">
+                                    <h4>We are Champions At Last Month</h4>
+                                    <p>Lorem ipsum</p>
+                                </span>
+                            </NavLink>
+                            <NavLink className="blog-item grid-block">
+                                <span className="blog-home-img" style={{backgroundImage:`url(${PorfolioImg5})`}}/>
+                                <span className="blog-home-content grid-block">
+                                    <h4>We are Champions At Last Month</h4>
+                                    <p>Lorem ipsum</p>
+                                </span>
+                            </NavLink>
+                            <NavLink className="blog-item grid-block">
+                                <span className="blog-home-img" style={{backgroundImage:`url(${PorfolioImg4})`}}/>
+                                <span className="blog-home-content grid-block">
+                                    <h4>We are Champions At Last Month</h4>
+                                    <p>Lorem ipsum</p>
+                                </span>
+                            </NavLink>
+                            <NavLink className="blog-item grid-block">
+                                <span className="blog-home-img" style={{backgroundImage:`url(${PorfolioImg6})`}}/>
+                                <span className="blog-home-content grid-block">
+                                    <h4>We are Champions At Last Month</h4>
+                                    <p>Lorem ipsum</p>
+                                </span>
+                            </NavLink>
+                            <div className="buttoncase">
+                                <NavLink className="button">View Porfolio</NavLink>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <footer className="main-footer">
+                    <div className="container">
+                        <div className="footer-logo">
+                            We Are Real <span>Creators</span>
+                        </div>
+                        <div className="footer-copy">~©~</div>
+                    </div>
+                </footer>
             </div>
 
         </div>
