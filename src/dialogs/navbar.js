@@ -9,6 +9,7 @@ const Navbar =(props)=>{
             <NavLink to="/ticTac">TicTac</NavLink>
             <NavLink to="/calculator">Calculator</NavLink>
             <NavLink to="/testMap">Test map</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
         </nav>
 
     )

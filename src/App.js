@@ -9,6 +9,7 @@ import {Route} from "react-router-dom";
 import DialogsContainer from "./dialogs/dialogs/dialogsContainer";
 import UsersContainer from "./dialogs/users/usersContainer";
 import TestMap from "./testMap";
+import PostsContainer from "./posts/postsContainer";
 
 class App extends Component {
     constructor(props){
@@ -44,12 +45,15 @@ class App extends Component {
                   <div className="body-wrapp">
                       <Navbar/>
                       <div className="body-wrapp-content">
-                          <Route exact path="/profile" render={ () => <Profile/>}/>
+                          <Route exact path="/" render={ () => <Profile/>}/>
+                          <Route path="/profile" render={ () => <Profile/>}/>
                           <Route path="/dialogs" render={ () => <DialogsContainer/>}/>
                           <Route path="/users" render={ () => <UsersContainer/>}/>
                           <Route path="/ticTac" render={()=>  <Game/>}/>
                           <Route path="/calculator" render = {()=> <Calculator/>}/>
                           <Route path="/testMap" render = {()=> <TestMap users={this.state.users}/>}/>
+                          <Route path="/blog" render={()=><PostsContainer/>}/>
+                          {/*<Route path="/blog/:id" render={()=><FullPost/>}/>*/}
                       </div>
                   </div>
               </div>
