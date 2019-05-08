@@ -1,6 +1,6 @@
 import React from "react";
 import HeaderBg from "../img/0-header.jpg";
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink, Route, Switch} from "react-router-dom";
 import PorfolioImg1 from "../img/1.jpg";
 import PorfolioImg2 from "../img/2.jpg";
 import PorfolioImg3 from "../img/3.jpg";
@@ -10,6 +10,8 @@ import PorfolioImg6 from "../img/6.jpg";
 import PorfolioImg7 from "../img/7.jpg";
 import PorfolioImg8 from "../img/8.jpg";
 import PorfolioImg9 from "../img/9.jpg";
+import FullPost from "./fullPost";
+
 
 
 const Posts = (props) => {
@@ -94,10 +96,15 @@ console.log("POSTS", props);
                                         <p>{post.blogText}</p>
                                     </span>
                                <p onClick={()=>props.fullPost(post.id)}>Read more</p>
+
                             </Link>
+
                             )
                         }
 
+                        <Switch>
+                            <Route path="/blog/:id" render={()=><FullPost/>}/>
+                        </Switch>
 
                         <div className="buttoncase">
                             <NavLink className="button">View Porfolio</NavLink>

@@ -1,13 +1,15 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {showFullPostActionCreator} from "../redux/postsReducer";
+import {showFullPostActionCreator, showPostsPostActionCreator} from "../redux/postsReducer";
 import Posts from "./posts";
 
 
 let mapStateToProps = (state) => {
     return {
         posts: state.postsPage.posts,
-        fullText: state.postsPage.fullText
+        fullText: state.postsPage.fullText,
+        postsToShow: state.postsPage.postsToShow,
+        expanded: state.postsPage.expanded
     }
 };
 let mapDispatchToProps = (dispatch) => {
@@ -15,6 +17,9 @@ let mapDispatchToProps = (dispatch) => {
         fullPost:()=>{
             dispatch(showFullPostActionCreator());
         },
+        showPosts:()=>{
+            dispatch(showPostsPostActionCreator());
+        }
 
     }
 };

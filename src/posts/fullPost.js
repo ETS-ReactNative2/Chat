@@ -1,6 +1,5 @@
 import React from "react";
 
-const FullPost = (props)=>{
-console.log("FullPost", props)
-}
+const FullPost = (props) =>  <div> hello</div>
+
 export default FullPost;

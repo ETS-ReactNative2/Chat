@@ -2,7 +2,7 @@ import profileReduser from "./profileReducer";
 import dialogReduser from "./dialogsReducer";
 import sidebarReduser from "./sidebarReducer";
 
-let store ={
+let _store ={
     _state: {
         profilePage:{
             posts:[
@@ -48,4 +48,4 @@ let store ={
 
 
 
-export default store;
+export default _store;
