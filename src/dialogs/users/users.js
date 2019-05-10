@@ -1,16 +1,13 @@
 import React from 'react';
 import * as axios from 'axios/index';
-import  userPhoto from '../../img/Bean_Avatar.jpg'
+import userPhoto from '../../img/Bean_Avatar.jpg'
 
 
 class Users extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-            this.props.setUsers(response.data.items);
-        });
     }
+
     // getUsers = () => {
     //     if (this.props.users.length === 0) {
     //         axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
@@ -18,6 +15,11 @@ class Users extends React.Component {
     //         });
     //     }
     // }
+    componentDidMount () {
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            this.props.setUsers(response.data.items);
+        });
+    }
 
     render() {
         console.log("users", this.props)
@@ -58,4 +60,5 @@ class Users extends React.Component {
 
     }
 }
+
 export default Users;
