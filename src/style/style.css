@@ -339,7 +339,6 @@ body {
 input, textarea{
     border: none;
     padding: 15px 5px;
-    width: 100%;
     font-style: italic;
     outline: none;
     transition: background-color .25s ease;
