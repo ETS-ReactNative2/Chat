@@ -10,7 +10,7 @@ import DialogsContainer from "./dialogs/dialogs/dialogsContainer";
 import UsersContainer from "./dialogs/users/usersContainer";
 import TestMap from "./testMap";
 import PostsContainer from "./posts/postsContainer";
-import FullPost from "./posts/fullPost";
+
 
 class App extends Component {
     constructor(props){

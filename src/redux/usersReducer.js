@@ -1,11 +1,15 @@
 const subscribe = "subscribe";
 const unsubscribe = "unsubscribe";
 const setUsers = "setUsers";
+const setCurrentPage = "setCurrentPage";
+const setTotalUserCount = "setTotalUserCount";
 
 
 let initialState = {
     users:[],
-
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 1
 }
 
 const usersReduser = (state = initialState, action)=>{
@@ -31,7 +35,13 @@ const usersReduser = (state = initialState, action)=>{
                 })
             }
         case setUsers: {
-            return {...state, users: [...state.users, ...action.users]}
+            return {...state, users: action.users}
+        }
+        case setCurrentPage: {
+            return {...state, currentPage:action.currentPage}
+        }
+        case setTotalUserCount: {
+            return {...state, totalUsersCount:action.count}
         }
 
         default:
@@ -56,5 +66,18 @@ export let setUsersActionCreator =(users)=>{
         type: setUsers,
          users
       }
+}
+
+export let setCurrentPageActionCreator = (currentPage) =>{
+    return{
+        type: setCurrentPage,
+        currentPage
+    }
+}
+export let setTotalUserCountActionCreator = (totalUsersCount) =>{
+    return{
+        type: setTotalUserCount,
+        count: totalUsersCount
+    }
 }
 export default usersReduser;

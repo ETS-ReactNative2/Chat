@@ -502,3 +502,8 @@ form .button{
         grid-column: 1/2;
     }
 }
+
+
+.currentPage{
+    font-weight: bold;
+}
