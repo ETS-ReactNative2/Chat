@@ -502,7 +502,14 @@ form .button{
         grid-column: 1/2;
     }
 }
-
+.pagination{
+    margin: 20px 0;
+}
+.pagination span{
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 5px;
+}
 
 .currentPage{
     font-weight: bold;

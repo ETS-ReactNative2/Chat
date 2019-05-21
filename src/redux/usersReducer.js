@@ -3,13 +3,15 @@ const unsubscribe = "unsubscribe";
 const setUsers = "setUsers";
 const setCurrentPage = "setCurrentPage";
 const setTotalUserCount = "setTotalUserCount";
+const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 
 
 let initialState = {
     users:[],
     pageSize: 5,
     totalUsersCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: false
 }
 
 const usersReduser = (state = initialState, action)=>{
@@ -42,6 +44,9 @@ const usersReduser = (state = initialState, action)=>{
         }
         case setTotalUserCount: {
             return {...state, totalUsersCount:action.count}
+        }
+        case TOGGLE_IS_FETCHING: {
+            return {...state, isFetching:action.isFetching}
         }
 
         default:
@@ -80,4 +85,11 @@ export let setTotalUserCountActionCreator = (totalUsersCount) =>{
         count: totalUsersCount
     }
 }
+export let setToggleFetchingActionCreator = (isFetching) =>{
+    return{
+        type: TOGGLE_IS_FETCHING,
+        isFetching
+    }
+}
+
 export default usersReduser;
