@@ -1,9 +1,11 @@
 import React from 'react';
 import Preloader from "../../common/preloader/preloader";
+import userPhoto from "../../img/Bean_Avatar.jpg";
 
 
 
 const ProfileInfo =(props)=>{
+    console.log("ProfileInfo", props.profile)
     if(!props.profile){
         return <Preloader/>
     }
@@ -11,7 +13,10 @@ const ProfileInfo =(props)=>{
     return (
         <div className="profile">
             <div>
-                <img src={props.profile.photos.large}/>
+                <img src={props.profile.photos.large != null ||
+                          props.profile.photos.large != undefined ?
+                          props.profile.photos.large
+                          : userPhoto}/>
             </div>
             <p>{props.profile.fullName}</p>
             <p>{props.profile.aboutMe}</p>
