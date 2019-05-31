@@ -4,13 +4,15 @@ import sidebarReduser from "./sidebarReducer";
 import profileReduser from "./profileReducer";
 import usersReduser from "./usersReducer";
 import postsReduser from "./postsReducer";
+import authReduser from "./authReducer";
 
 let reducers = combineReducers({
     profilePage: profileReduser,
     dialogsPage: dialogReduser,
     sidebar: sidebarReduser,
     usersPage: usersReduser,
-    postsPage: postsReduser
+    postsPage: postsReduser,
+    auth: authReduser
 });
 
 let store = createStore(reducers);

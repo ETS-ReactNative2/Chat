@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 import Calculator from "./calculator/Calculator";
 import Game from "./ticTac/game";
-import Header from "./dialogs/header";
 import Navbar from "./dialogs/navbar";
-import Profile from "./dialogs/profile/profile";
 import {Route} from "react-router-dom";
 import DialogsContainer from "./dialogs/dialogs/dialogsContainer";
 import UsersContainer from "./dialogs/users/usersContainer";
 import TestMap from "./testMap";
 import PostsContainer from "./posts/postsContainer";
 import ProfileContainer from "./dialogs/profile/profileContainer";
+import HeaderContainer from "./dialogs/header/headerContainer";
 
 
 class App extends Component {
@@ -43,7 +42,7 @@ class App extends Component {
         console.log("App",this.props.addPost);
     return (
               <div className="app-wrapp">
-                  <Header/>
+                  <HeaderContainer/>
                   <div className="body-wrapp">
                       <Navbar/>
                       <div className="body-wrapp-content">
