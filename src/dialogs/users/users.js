@@ -31,12 +31,12 @@ let Users = (props) => {
                     </div>
                     <div>
                         {user.subscribe ?
-                            <button onClick={() => {
-                                props.unsubscribe(user.id)
+                            <button disabled={props.subscribeInProgress.some(id=> id === user.id)} onClick={() => {
+                                props.toggleSubscribeInProgress(true, user.id)
                             }}> subscribe</button>
                             :
-                            <button onClick={() => {
-                                props.subscribe(user.id)
+                            <button disabled={props.subscribeInProgress.some(id=> id === user.id)} onClick={() => {
+                                props.toggleSubscribeInProgress(false, user.id)
                             }}>unsubscribe</button>
                         }
 

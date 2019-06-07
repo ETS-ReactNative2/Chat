@@ -4,11 +4,11 @@ import Users from "./users";
 import {
     setCurrentPageActionCreator, setToggleFetchingActionCreator, setTotalUserCountActionCreator,
     setUsersActionCreator,
-    subscribeActionCreator,
+    subscribeActionCreator, subscribeInProgressActionCreator,
     unsubscribeActionCreator
 } from "../../redux/usersReducer";
-import * as axios from "axios";
 import Preloader from "../../common/preloader/preloader";
+import {usersAPI} from "../../api/api";
 
 
 
@@ -16,30 +16,20 @@ class UsersContainer extends React.Component {
     constructor(props) {
         super(props);
     }
-
-    // getUsers = () => {
-    //     if (this.props.users.length === 0) {
-    //         axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-    //             this.props.setUsers(response.data.items);
-    //         });
-    //     }
-    // }
     componentDidMount () {
         this.props.toggleIsFetching (true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-            .then(response => {
+        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
                 this.props.toggleIsFetching (false);
-                this.props.setUsers(response.data.items);
-                this.props.setTotalUserCount(response.data.totalCount);
+                this.props.setUsers(data.items);
+                this.props.setTotalUserCount(data.totalCount);
         });
     }
     onPageChanged = (page)=>{
         this.props.setCurrentPage(page);
         this.props.toggleIsFetching (true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
-            .then(response => {
+        usersAPI.getUsers(page, this.props.pageSize).then(data => {
                 this.props.toggleIsFetching (false);
-                this.props.setUsers(response.data.items);
+                this.props.setUsers(data.items);
         });
     }
     render() {
@@ -55,6 +45,8 @@ class UsersContainer extends React.Component {
                    users={this.props.users}
                    unsubscribe = {this.props.unsubscribe}
                    subscribe = {this.props.subscribe}
+                   toggleSubscribeInProgress = {this.props.toggleSubscribeInProgress}
+                   subscribeInProgress = {this.props.subscribeInProgress}
             />
             </div>
         )
@@ -63,15 +55,14 @@ class UsersContainer extends React.Component {
 }
 
 
-
-
 let mapStateToProps = (state) =>{
     return {
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        subscribeInProgress: state.usersPage.subscribeInProgress
     }
 }
 let mapDispatchToProps = (dispatch)=> {
@@ -93,6 +84,9 @@ let mapDispatchToProps = (dispatch)=> {
         },
         toggleIsFetching:(isFetching) => {
             dispatch(setToggleFetchingActionCreator(isFetching))
+        },
+        toggleSubscribeInProgress:(isFetching) => {
+            dispatch(subscribeInProgressActionCreator (isFetching))
         }
     }
 }
