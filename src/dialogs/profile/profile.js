@@ -5,6 +5,7 @@ import ProfileInfo from "./profileInfo";
 
 
 const Profile =(props)=>{
+
     return (
         <div className="profile">
             <ProfileInfo profile={props.profile}/>

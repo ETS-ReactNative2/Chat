@@ -1,3 +1,5 @@
+import {usersAPI} from "../api/api";
+
 const subscribe = "subscribe";
 const unsubscribe = "unsubscribe";
 const setUsers = "setUsers";
@@ -90,13 +92,13 @@ export let setCurrentPageActionCreator = (currentPage) =>{
         currentPage
     }
 }
-export let setTotalUserCountActionCreator = (totalUsersCount) =>{
+export let setTotalUserCountActionCreater = (totalUsersCount) =>{
     return{
         type: setTotalUserCount,
         count: totalUsersCount
     }
 }
-export let setToggleFetchingActionCreator = (isFetching) =>{
+export let toggleIsFetching = (isFetching) =>{
     return{
         type: TOGGLE_IS_FETCHING,
         isFetching
@@ -107,6 +109,17 @@ export let subscribeInProgressActionCreator = (isFetching, userId) =>{
         type: TOGGLE_IS_SUBSCRIBE_PROGRESS,
         isFetching,
         userId
+    }
+}
+
+export const getUsersThunkCreator = (currentPage, pageSize)=>{
+    return (dispatch) =>{
+    dispatch (toggleIsFetching (true));
+    usersAPI.getUsers(currentPage, pageSize).then(data => {
+        dispatch(toggleIsFetching (false));
+        dispatch(setUsersActionCreator(data.items));
+        dispatch(setTotalUserCountActionCreater(data.totalCount));
+        });
     }
 }
 

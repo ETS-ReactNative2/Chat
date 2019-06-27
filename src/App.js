@@ -10,6 +10,7 @@ import TestMap from "./testMap";
 import PostsContainer from "./posts/postsContainer";
 import ProfileContainer from "./dialogs/profile/profileContainer";
 import HeaderContainer from "./dialogs/header/headerContainer";
+import Login from "./dialogs/login/login";
 
 
 class App extends Component {
@@ -54,6 +55,7 @@ class App extends Component {
                           <Route path="/calculator" render = {()=> <Calculator/>}/>
                           <Route path="/testMap" render = {()=> <TestMap users={this.state.users}/>}/>
                           <Route path="/blog" render={()=><PostsContainer/>}/>
+                          <Route path="/login" render={()=><Login/>}/>
                       </div>
                   </div>
               </div>

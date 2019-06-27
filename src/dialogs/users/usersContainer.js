@@ -2,13 +2,13 @@ import React from 'react';
 import {connect} from "react-redux";
 import Users from "./users";
 import {
-    setCurrentPageActionCreator, setToggleFetchingActionCreator, setTotalUserCountActionCreator,
-    setUsersActionCreator,
+    getUsersThunkCreator,
+    setCurrentPageActionCreator,
     subscribeActionCreator, subscribeInProgressActionCreator,
     unsubscribeActionCreator
 } from "../../redux/usersReducer";
 import Preloader from "../../common/preloader/preloader";
-import {usersAPI} from "../../api/api";
+
 
 
 
@@ -17,20 +17,10 @@ class UsersContainer extends React.Component {
         super(props);
     }
     componentDidMount () {
-        this.props.toggleIsFetching (true);
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-                this.props.toggleIsFetching (false);
-                this.props.setUsers(data.items);
-                this.props.setTotalUserCount(data.totalCount);
-        });
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
     onPageChanged = (page)=>{
-        this.props.setCurrentPage(page);
-        this.props.toggleIsFetching (true);
-        usersAPI.getUsers(page, this.props.pageSize).then(data => {
-                this.props.toggleIsFetching (false);
-                this.props.setUsers(data.items);
-        });
+        this.props.getUsers(page, this.props.pageSize);
     }
     render() {
         return (
@@ -73,20 +63,14 @@ let mapDispatchToProps = (dispatch)=> {
         unsubscribe: (userId) => {
             dispatch(unsubscribeActionCreator(userId))
         },
-        setUsers: (users) => {
-            dispatch(setUsersActionCreator(users))
-        },
         setCurrentPage: (currentPage) => {
             dispatch(setCurrentPageActionCreator(currentPage))
         },
-        setTotalUserCount: (totalCount) => {
-            dispatch(setTotalUserCountActionCreator(totalCount))
-        },
-        toggleIsFetching:(isFetching) => {
-            dispatch(setToggleFetchingActionCreator(isFetching))
-        },
         toggleSubscribeInProgress:(isFetching) => {
             dispatch(subscribeInProgressActionCreator (isFetching))
+        },
+        getUsers: (currentPage, pageSize) =>{
+            dispatch (getUsersThunkCreator(currentPage, pageSize))
         }
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import PostsContainer from "./posts/postsContainer";
 
-const TestMap = (props) => {
+const  TestMap = (props) => {
     return (<div>
             <div className="users">
                 {props.users.map((itm) => {
