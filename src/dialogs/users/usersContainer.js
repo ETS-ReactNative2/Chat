@@ -8,6 +8,8 @@ import {
     unsubscribeActionCreator
 } from "../../redux/usersReducer";
 import Preloader from "../../common/preloader/preloader";
+import {compose} from "redux";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 
 
@@ -74,4 +76,8 @@ let mapDispatchToProps = (dispatch)=> {
         }
     }
 }
-export default connect (mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default compose(
+    connect (mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)
+(UsersContainer);

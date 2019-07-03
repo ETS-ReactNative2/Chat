@@ -1,6 +1,7 @@
 import React from 'react';
 import Preloader from "../../common/preloader/preloader";
 import userPhoto from "../../img/Bean_Avatar.jpg";
+import ProfileStatus from "./profile-status";
 
 
 
@@ -17,6 +18,7 @@ const ProfileInfo =(props)=>{
                           props.profile.photos.large != undefined ?
                           props.profile.photos.large
                           : userPhoto}/>
+                <ProfileStatus status={"hello"}/>
             </div>
             <p>{props.profile.fullName}</p>
             <p>{props.profile.aboutMe}</p>
